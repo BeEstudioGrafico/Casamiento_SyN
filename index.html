@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sol & Nico</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: #ffffff;
+}
+
+
+/* =========================
+   PANTALLAS
+   ========================= */
+
+.pantalla {
+    position: relative;
+    width: 100%;
+    display: none;
+}
+
+.pantalla.activa {
+    display: block;
+}
+
+.pantalla img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================
+   BOTÓN CIVIL — INVISIBLE
+   ========================= */
+
+.boton-civil {
+    position: absolute;
+    left: 20%;
+    top: 85%;
+    width: 60%;
+    height: 8%;
+    background: transparent;
+    border: none;
+}
+
+
+/* =========================
+   BOTÓN FESTEJO — INVISIBLE
+   ========================= */
+
+.boton-festejo {
+    position: absolute;
+    left: 20%;
+    top: 85%;
+    width: 60%;
+    height: 8%;
+    background: transparent;
+    border: none;
+}
+
+
+/* =========================
+   VER DIRECCIÓN — INVISIBLE
+   ========================= */
+
+.boton-mapa {
+    position: absolute;
+    left: 20%;
+    top: 70%;
+    width: 60%;
+    height: 8%;
+    background: transparent;
+    border: none;
+}
+
+
+/* =========================
+   CONFIRMAR ASISTENCIA — INVISIBLE
+   ========================= */
+
+.boton-wsp {
+    position: absolute;
+    left: 20%;
+    top: 80%;
+    width: 60%;
+    height: 8%;
+    background: transparent;
+    border: none;
+}
+
+
+/* =========================
+   ABONAR BARRA LIBRE — INVISIBLE
+   ========================= */
+
+.boton-barra {
+    position: absolute;
+    left: 20%;
+    top: 90%;
+    width: 60%;
+    height: 8%;
+    background: transparent;
+    border: none;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     PANTALLA 1 — PORTADA
+     ========================= -->
+
+<section id="portada" class="pantalla activa">
+
+    <img src="imagenes/casamiento_SyN.png" alt="Sol & Nico">
+
+    <a href="#civil" class="boton-civil"></a>
+
+</section>
+
+
+<!-- =========================
+     PANTALLA 2 — NUESTRO CIVIL
+     ========================= -->
+
+<section id="civil" class="pantalla">
+
+    <img src="imagenes/NuestroCivil.png" alt="Nuestro Civil">
+
+    <a href="#fiesta" class="boton-festejo"></a>
+
+</section>
+
+
+<!-- =========================
+     PANTALLA 3 — FESTEJO
+     ========================= -->
+
+<section id="fiesta" class="pantalla">
+
+    <img src="imagenes/Festejo.png" alt="Nuestra Fiesta">
+
+
+    <!-- VER DIRECCIÓN -->
+
+    <a
+        href="https://maps.app.goo.gl/qoP1BPhkF6KXe9wN8"
+        class="boton-mapa"
+        target="_blank"
+        rel="noopener">
+    </a>
+
+
+    <!-- CONFIRMAR ASISTENCIA -->
+
+    <a
+        href="https://wa.me/5492478519021?text=Hola%21%20Obvio%20que%20estar%C3%A9%20para%20acompa%C3%B1arlos%20para%20festejar%20su%20amor%2C%20confirmo%20mi%20asistencia%21%20%E2%9D%A4%EF%B8%8F"
+        class="boton-wsp"
+        target="_blank"
+        rel="noopener">
+    </a>
+
+
+    <!-- ABONAR BARRA LIBRE -->
+
+    <a
+        href="#barra"
+        class="boton-barra">
+    </a>
+
+</section>
+
+
+<!-- =========================
+     PANTALLA 4 — BARRA LIBRE
+     ========================= -->
+
+<section id="barra" class="pantalla">
+
+    <img src="imagenes/Barra Libre.png" alt="Barra libre">
+
+</section>
+
+
+<script>
+
+/* =========================
+   CAMBIO DE PANTALLAS
+   ========================= */
+
+const botones = document.querySelectorAll('a[href^="#"]');
+
+botones.forEach(function(boton) {
+
+    boton.addEventListener('click', function(event) {
+
+        event.preventDefault();
+
+        const destino = boton.getAttribute('href').substring(1);
+
+        document.querySelectorAll('.pantalla').forEach(function(pantalla) {
+            pantalla.classList.remove('activa');
+        });
+
+        document.getElementById(destino).classList.add('activa');
+
+        window.scrollTo(0, 0);
+
+    });
+
+});
+
+</script>
+
+
+</body>
+
+</html>
